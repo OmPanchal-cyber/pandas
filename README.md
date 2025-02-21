@@ -48,39 +48,5 @@ data
 
 data.to_csv(r"C:\Users\panchal_____om\Downloads\pandas_cricket_score.csv",index=False)
 
-import pandas as pd
 
-data=pd.read_excel(r"C:\Users\panchal_____om\Downloads\espn cric score (1).xlsx",header=3)
-
-data["SR"].unique
-
-data[data["SR"]=='-'].index
-
-data.drop(data[data["SR"]=='-'].index,inplace=True)
-
-data
-
-data.select_dtypes(include="object").columns
-
-data[[ 'Mat', 'HS', 'BF', '4s', '6s']]=data[[ 'Mat', 'HS', 'BF', '4s', '6s']].replace("[*+]",'',regex=True).astype(int)
-
-data[["SR"]]=data[["SR"]].replace("[*+]",'',regex=True).astype(float)
-
-data.info()
-
-
-data["country"]=data["Player"].str.split(" ").str[-1].replace("[()]","",regex=True)
-
-data["Player"]=data["Player"].str.split("(").str[0]
-
-data
-
-data["Start"]=data["Span"].str.split("-").str[0]
-data["End"]=data["Span"].str.split("-").str[-1]
-
-data.drop(data["Span"],axis=1,inplace=True)
-
-data.drop("Span",axis=1,inplace=True)
-
-data
 
